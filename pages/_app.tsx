@@ -1,6 +1,7 @@
 
-import '../styles/globals.css'
-import type { AppProps /*, AppContext */ } from 'next/app'
+import '../styles/globals.css';
+import type { AppProps } from 'next/app';
+import { wrapper } from '../redux/store/store';
 
 function App({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />
@@ -18,4 +19,4 @@ function App({ Component, pageProps }: AppProps) {
 //   return { ...appProps }
 // }
 
-export default App
+export default wrapper.withRedux(App)

@@ -1,0 +1,41 @@
+import { actionTypes } from '../actions/actions'
+import { HYDRATE } from 'next-redux-wrapper'
+
+const initialState = {
+  count: 0,
+  error: false,
+  lastUpdate: 0,
+  light: false,
+  placeholderData: null,
+}
+
+function reducer(state: any, action: any) {
+  switch (action.type) {
+    case HYDRATE: {
+      return { ...state, ...action.payload }
+    }
+
+    case actionTypes.FAILURE:
+      return {
+        ...state,
+        ...{ error: action.error },
+      }
+
+    case actionTypes.RESET:
+      return {
+        ...state,
+        ...{ count: initialState.count },
+      }
+
+    case actionTypes.LOAD_DATA_SUCCESS:
+      return {
+        ...state,
+        ...{ placeholderData: action.data },
+      }
+
+    default:
+      return state
+  }
+}
+
+export default reducer

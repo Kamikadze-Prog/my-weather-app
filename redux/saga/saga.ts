@@ -1,22 +1,16 @@
-import { all, put, takeLatest } from 'redux-saga/effects'
-import { actionTypes, failure } from '../actions/actions'
-/*loadDataSuccess*/
+import { all, fork, put, take } from "redux-saga/effects";
+import { actionTypes } from "../actions/actions";
+import axios from "axios";
+import api from "../../api/api";
 
-
-function* loadDataSaga() {
-  try {
-    // const res = yield fetch('https://jsonplaceholder.typicode.com/users')
-    // const data = yield res.json()
-    // yield put(loadDataSuccess(data))
-  } catch (err) {
-    yield put(failure(err))
-  }
+function* actionWatcher() {
+  yield take(actionTypes.LOAD_DATA_SUCCESS);
+  const { data } = yield axios.get(`${api.baseURL}?q=${`Sydney`}&APPID=${api.apiKey}`);
+  console.log(data);
+  yield put({ type: actionTypes.LOAD_DATA_REQUESTED, data });
 }
 
-function* rootSaga() {
-  yield all([
-    takeLatest(actionTypes.LOAD_DATA, loadDataSaga),
-  ])
+export default function* mySaga(): Generator {
+  yield all([fork(actionWatcher)]);
 }
 
-export default rootSaga

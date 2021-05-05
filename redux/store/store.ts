@@ -1,7 +1,7 @@
 import { applyMiddleware, createStore } from "redux";
 import createSagaMiddleware from "redux-saga";
 import { createWrapper } from "next-redux-wrapper";
-import rootReducer from "../reducer/reducer";
+import reducer from "../reducer/reducer";
 import rootSaga from "../saga/saga";
 
 const bindMiddleware = (middleware: any) => {
@@ -14,7 +14,7 @@ const bindMiddleware = (middleware: any) => {
 
 export const makeStore = () => {
   const sagaMiddleware = createSagaMiddleware();
-  const store = createStore(rootReducer, bindMiddleware([sagaMiddleware]));
+  const store = createStore(reducer, bindMiddleware([sagaMiddleware]));
 
   sagaMiddleware.run(rootSaga);
 

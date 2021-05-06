@@ -1,44 +1,67 @@
 import Head from "next/head";
-import styles from "../styles/Home.module.scss";
-import { actionTypes } from "../redux/actions/actions";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import styles from "../styles/Home.module.scss";
+import { CityType } from "../shared/intersfaces/cityTypes";
+import { findCityAct } from "../redux/actions/actions";
 
 export default function Home() {
   const dispatch = useDispatch();
-  const [cityWeather, setCityWeather] = useState<CityType[]>();
-  const [city, setCity] = useState('')
-  const reducer = useSelector((state: { reducer: CityType[] }) => state);
+  const [cityWeather, setCityWeather] = useState<CityType>();
+  const [cityName, setCityName] = useState("");
+  const cityData = useSelector((state: { cityReducer: CityType }) => state.cityReducer);
+  const forecastData = useSelector((state: { forecastReducer: any }) => state.forecastReducer);
+
 
   useEffect(() => {
-    dispatch({ type: actionTypes.LOAD_DATA_SUCCESS, city });
-  }, [city]);
+    if (!cityData) return;
+    setCityWeather(cityData);
+  }, [cityData]);
 
-  useEffect(() => {
-    if (reducer) {
-      setCityWeather(reducer);
-    }
-  }, [reducer]);
+  function onClickHandler(e: any) {
+     if (!cityName) return;
+    e.preventDefault();
+    dispatch(findCityAct(cityName));
+    setCityName("");
+  }
 
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next TypeScript App</title>
+        <title>Weather Style</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <main className={styles.main}>
         <h1 className={styles.title}>
           Weather for City
         </h1>
-        <input type={`text`} placeholder={`Enter city`} onChange={(event)=> {setCity(event.target.value)}}/>
+        <form>
+          <input
+            type="text"
+            placeholder="Enter city"
+            value={cityName}
+            onChange={(event) => {
+              setCityName(event.target.value);
+            }}
+          />
+          <button onClick={onClickHandler} type="submit">
+            Find City
+          </button>
+        </form>
+        {(cityWeather) &&
+        <div>
+          City Name: {cityWeather.name} Wind Speed: {cityWeather.wind.speed}
+        </div>
+        }
         {cityWeather &&
-        <div> City Name: {cityWeather.name} Wind Speed: {cityWeather.wind.speed}
+        <div>
+          City cnt: {forecastData.cnt} City code: {forecastData.cod}
         </div>}
+
       </main>
 
       <footer className={styles.footer}>
-        <a href="https://github.com/Kamikadze-Prog" target="_blank" rel="Develop by kamikadze">Powered by Kamikadze</a>
+        <div> Owned by Kamikadze</div>
       </footer>
     </div>
   );

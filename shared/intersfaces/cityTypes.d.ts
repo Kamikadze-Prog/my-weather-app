@@ -36,7 +36,7 @@ interface CloudsType {
   all: number,
 }
 
-interface CityType {
+export interface CityType {
   coord: CoordsType,
   weather: [WeatherType],
   base: string,
@@ -50,4 +50,5 @@ interface CityType {
   id: number,
   name: string,
   cod: number,
+  error: string,
 }

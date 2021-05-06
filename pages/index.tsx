@@ -19,7 +19,7 @@ export default function Home() {
   }, [cityData]);
 
   function onClickHandler(e: any) {
-     if (!cityName) return;
+    if (!cityName) return;
     e.preventDefault();
     dispatch(findCityAct(cityName));
     setCityName("");
@@ -53,7 +53,7 @@ export default function Home() {
           City Name: {cityWeather.name} Wind Speed: {cityWeather.wind.speed}
         </div>
         }
-        {cityWeather &&
+        {forecastData &&
         <div>
           City cnt: {forecastData.cnt} City code: {forecastData.cod}
         </div>}

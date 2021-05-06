@@ -12,7 +12,6 @@ function* actionWatcher(): Generator {
     } catch (error) {
       yield put({ type: actionTypes.LOAD_DATA_FAILED, error });
     }
-
      // yield getData(getForecast(action.name), actionTypes.LOAD_DATA_FORECAST_SUCCEEDED);
   });
 

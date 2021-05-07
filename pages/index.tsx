@@ -1,19 +1,17 @@
 import styles from "../src/core/home/components/homeComponent/home.module.scss";
-import InputCity from "../src/core/components/home/components/input/inpyt";
-import Weather from "../src/core/components/home/components/weather/weather";
-import Forecast from "../src/core/components/home/components/forecast/forecast";
-import Layout from "../src/shared/components/Loyout";
+import { CustomInput } from "../src/core/components/home/components/input/input";
+import { Weather } from "../src/core/components/home/components/weather/weather";
+import { Forecast } from "../src/core/components/home/components/forecast/forecast";
+import Layout from "../src/shared/components/Layout";
 
 export default function Home() {
   return (
-    <Layout home>
-      <div className={styles.container}>
+    <Layout>
       <main className={styles.main}>
-        <InputCity />
+        <CustomInput />
         <Weather />
         <Forecast />
       </main>
-    </div>
     </Layout>
   );
 }

@@ -2,8 +2,9 @@ import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { getWeatherData } from "../../../../home/home.selectors";
 import { CityType } from "../../../../home/home.type";
+import WeatherCard from "../../../../../shared/components/weatherCards/weatherCard";
 
-export default function Weather() {
+export const Weather = () => {
   const [cityWeather, setCityWeather] = useState<CityType>();
   const cityData = useSelector(getWeatherData);
 
@@ -15,10 +16,13 @@ export default function Weather() {
   return (
     <>
       {(cityWeather) &&
-      <div>
-        City Name: {cityWeather.name} Wind Speed: {cityWeather.wind.speed}
-      </div>
+      <>
+        <div>
+          Weather for city ({cityWeather.name})
+        </div>
+        <WeatherCard cityWeather={cityWeather} />
+      </>
       }
     </>
   );
-}
+};

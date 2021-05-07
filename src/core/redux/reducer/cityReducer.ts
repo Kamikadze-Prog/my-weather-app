@@ -1,5 +1,5 @@
 import { actionTypes } from '../actions/actions'
-import { CityReducerType } from "../../shared/intersfaces/interfaces";
+import { CityReducerType } from "../../../shared/intersfaces/interfaces";
 
 const InitialState = {
   coord: {
@@ -48,10 +48,10 @@ const InitialState = {
 
 function cityReducer(state = InitialState, action: CityReducerType) {
   switch (action.type) {
-    case actionTypes.LOAD_DATA_SUCCEEDED:
+    case actionTypes.LOAD_CITY_SUCCEEDED:
       return action.data;
 
-    case actionTypes.LOAD_DATA_FAILED:
+    case actionTypes.LOAD_CITY_FAILED:
       return InitialState;
     default:
       return state

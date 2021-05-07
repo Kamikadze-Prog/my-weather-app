@@ -1,5 +1,5 @@
 import { actionTypes } from "../actions/actions";
-import { CityReducerType } from "../../shared/intersfaces/interfaces";
+import { CityReducerType } from "../../../shared/intersfaces/interfaces";
 
 const InitialState =
   {
@@ -64,9 +64,9 @@ const InitialState =
 
 function forecastReducer(state = InitialState, action: CityReducerType) {
   switch (action.type) {
-    case actionTypes.LOAD_DATA_FORECAST_SUCCEEDED:
+    case actionTypes.LOAD_FORECAST_SUCCEEDED:
       return action.data;
-    case actionTypes.LOAD_DATA_FORECAST_FAILED:
+    case actionTypes.LOAD_FORECAST_FAILED:
       return InitialState;
     default:
       return state;

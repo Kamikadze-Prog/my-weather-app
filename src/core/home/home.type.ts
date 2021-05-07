@@ -22,6 +22,8 @@ interface MainType {
 interface WindType {
   speed: number,
   deg: number,
+  gust: number
+
 }
 
 interface SysType {
@@ -36,6 +38,18 @@ interface CloudsType {
   all: number,
 }
 
+interface CityListType {
+      dt: null,
+      main: MainType,
+      weather: WeatherType[],
+      clouds: CloudsType,
+      wind: WindType,
+      visibility: number,
+      pop: number,
+      sys: SysType,
+      dt_txt: string,
+}
+
 export interface CityType {
   coord?: CoordsType,
   weather?: [WeatherType],
@@ -47,8 +61,16 @@ export interface CityType {
   dt?: number,
   sys?: SysType,
   timezone?: number,
+  cnt: number,
   id: number,
   name: string,
   cod?: number,
   error?: string,
+  list: CityListType[],
+}
+
+export interface HomeType {
+  data: CityType,
+  error: string,
+  type: string
 }

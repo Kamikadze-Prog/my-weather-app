@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import { CityType } from "../../../../../shared/intersfaces/cityTypes";
 import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 import { getWeatherData } from "../../../../home/home.selectors";
+import { CityType } from "../../../../home/home.type";
 
 export default function Weather() {
   const [cityWeather, setCityWeather] = useState<CityType>();

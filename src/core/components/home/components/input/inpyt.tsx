@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { findCityAct, findForecastAct } from "../../../../redux/actions/actions";
 import { useDispatch } from "react-redux";
+import { useState } from "react";
+import { findCityAct, findForecastAct } from "../../../../home/home.actions";
 
 export default function InputCity() {
   const dispatch = useDispatch();

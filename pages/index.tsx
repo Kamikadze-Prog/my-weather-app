@@ -1,4 +1,4 @@
-import styles from "../src/core/styles/home.module.scss";
+import styles from "../src/core/home/components/homeComponent/home.module.scss";
 import InputCity from "../src/core/components/home/components/input/inpyt";
 import Weather from "../src/core/components/home/components/weather/weather";
 import Forecast from "../src/core/components/home/components/forecast/forecast";

@@ -1,5 +1,5 @@
-import { CityType } from "../../shared/intersfaces/cityTypes";
+import { CityType } from "./home.type";
 
-export const getWeatherData = (state: { cityReducer: CityType }) => state.cityReducer;
+export const getWeatherData = (state: { homeReducer: CityType }) => state.homeReducer;
 
 export const getForecastData = (state: { forecastReducer: any }) => state.forecastReducer;

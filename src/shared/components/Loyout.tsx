@@ -5,7 +5,7 @@ import Footer from "./footer/footer";
 
 export const siteTitle = 'Next.js Sample Website'
 
-export default function Layout({ children }) {
+export default function Layout({ children }: any) {
   return (
     <>
       <Head>

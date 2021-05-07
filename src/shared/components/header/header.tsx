@@ -1,4 +1,4 @@
-import styles from "../../../core/styles/home.module.scss";
+import styles from "../../../core/home/components/homeComponent/home.module.scss";
 
 export default function Header() {
 

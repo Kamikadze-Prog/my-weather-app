@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { getForecastData } from "../../../../home/home.selectors";
+import { CityType } from "../../../../home/home.type";
 
 export default function Forecast() {
-  const [forecast, setForecast] = useState();
+                                          /*ANY*/
+  const [forecast, setForecast] = useState<CityType>();
   const forecastData = useSelector(getForecastData);
 
   useEffect(() => {

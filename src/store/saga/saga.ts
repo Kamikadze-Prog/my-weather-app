@@ -1,11 +1,11 @@
 import { all, call, fork, put, takeEvery } from "redux-saga/effects";
-import { getCity, getForecast } from "../../../api/homeRequests";
-import { actionTypes } from "../actions/actions";
-import { CityActType } from "../../../shared/intersfaces/interfaces";
+import { getCity, getForecast } from "../../api/homeRequests";
+import { actionTypes } from "../../core/home/home.actions";
+import { HomeState } from "../../core/home/home.state";
 
 
 function* getCityData(): Generator {
-  yield takeEvery(actionTypes.LOAD_CITY, function* (action: CityActType) {
+  yield takeEvery(actionTypes.LOAD_CITY, function* (action: HomeState) {
     try {
       const { data } = yield call(()=> getCity(action.name));
       yield put({ type: actionTypes.LOAD_CITY_SUCCEEDED, data });
@@ -17,7 +17,7 @@ function* getCityData(): Generator {
 }
 
 function* getForecastData(): Generator {
-  yield takeEvery(actionTypes.LOAD_FORECAST, function* (action: CityActType) {
+  yield takeEvery(actionTypes.LOAD_FORECAST, function* (action: HomeState) {
     try {
       const { data } = yield call(()=> getForecast(action.name));
       yield put({ type: actionTypes.LOAD_FORECAST_SUCCEEDED, data });

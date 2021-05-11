@@ -1,5 +1,6 @@
-import { CityType } from "./home.type";
+import { City } from "../../shared/homeTypes/city";
+import { CityList } from "../../shared/homeTypes/cityList";
 
-export const getWeatherData = (state: { homeReducer: CityType }) => state.homeReducer;
+export const getWeatherData = (state: { homeReducer: City }) => state.homeReducer;
 
-export const getForecastData = (state: { forecastReducer: any }) => state.forecastReducer;
+export const getForecastData = (state: { forecastReducer: { list: CityList[] } }) => state.forecastReducer;

@@ -1,0 +1,41 @@
+.cardDayWrapper {
+  min-width: 150px;
+  height: 300px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px 5px 10px 5px;
+  }
+
+  .time {
+    background-color: #fdf0cd;
+  }
+
+  .sky {
+    background-color: #fdfdfd;
+  }
+
+  .humidity {
+    background-color: #e8e8e8;
+  }
+
+  .wind {
+    background-color: #e2fff0;
+  }
+
+  .temperature {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #c8defa;
+  }
+
+  border: 1px solid #b8dde8;
+}
+

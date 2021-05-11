@@ -1,0 +1,33 @@
+.dayWrapper {
+  display: flex;
+  padding: 5px;
+  overflow-x: scroll;
+
+  .weekDay {
+    padding: 5px;
+    margin: auto 0;
+  }
+
+  .daysWrapper {
+    display: flex;
+  }
+}
+
+.errorWrapper {
+  width: 100%;
+  text-align: center;
+  padding-top: 100px;
+  font-family: "Roboto", sans-serif;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .dayWrapper {
+    flex-direction: column;
+
+    .weekDay {
+      margin: 10px 0;
+    }
+  }
+}

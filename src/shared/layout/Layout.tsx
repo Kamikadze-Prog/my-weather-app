@@ -1,15 +1,12 @@
-import React from 'react';
-import Head from 'next/head';
-import Header from "./header/header";
-import Footer from "./footer/footer";
-import styles from "../../../src/core/home/components/homeComponent/home.module.scss";
-export const siteTitle = 'Next.js Sample Website'
+import React from "react";
+import Head from "next/head";
+import Header from "../components/header/header";
+import Footer from "../components/footer/footer";
+import styles from "../../core/home/components/homeComponent/home.module.scss";
 
-interface Pro {
-  children: JSX.Element
-}
-export default function Layout(props: Pro ) {
-  const { children } = props;
+export const siteTitle = "Next.js Sample Website";
+
+export default function Layout({ children }: JSX.ElementChildrenAttribute) {
   return (
     <div className={styles.container}>
       <Head>
@@ -27,5 +24,5 @@ export default function Layout(props: Pro ) {
       <main>{children}</main>
       <Footer />
     </div>
-  )
+  );
 }

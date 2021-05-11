@@ -7,5 +7,5 @@ export default function Footer() {
         <span>Owned by Kamikadze</span>
       </div>
     </footer>
-  )
+  );
 }

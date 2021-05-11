@@ -1,10 +1,9 @@
-
-import '../src/assets/common/globals.scss';
-import type { AppProps } from 'next/app';
-import { wrapper } from '../src/store/store';
+import "../src/assets/common/globals.scss";
+import type { AppProps } from "next/app";
+import { wrapper } from "../src/store/store";
 
 function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return <Component {...pageProps} />;
 }
 
 // Only uncomment this method if you have blocking data requirements for
@@ -19,4 +18,4 @@ function App({ Component, pageProps }: AppProps) {
 //   return { ...appProps }
 // }
 
-export default wrapper.withRedux(App)
+export default wrapper.withRedux(App);

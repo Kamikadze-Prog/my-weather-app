@@ -1,4 +1,3 @@
-
 export enum actionTypes {
   LOAD_CITY = "LOAD_DATA",
   LOAD_CITY_SUCCEEDED = "LOAD_DATA_SUCCEEDED",
@@ -7,16 +6,14 @@ export enum actionTypes {
   LOAD_FORECAST = "LOAD_FORECAST",
   LOAD_FORECAST_SUCCEEDED = "LOAD_DATA_FORECAST_SUCCEEDED",
   LOAD_FORECAST_FAILED = "LOAD_DATA_FORECAST_FAILED",
- }
+}
 
-export const findCityAct = (city: string) => {
-   return {
+export const findCityAct = (city: string) => ({
   type: actionTypes.LOAD_CITY,
   name: city
-}};
+});
 
-export const findForecastAct = (city: string) => {
-  return {
-    type: actionTypes.LOAD_FORECAST,
-    name: city
-  }};
+export const findForecastAct = (city: string) => ({
+  type: actionTypes.LOAD_FORECAST,
+  name: city
+});

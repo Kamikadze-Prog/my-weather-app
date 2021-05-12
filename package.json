@@ -16,6 +16,7 @@
     }
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.4",
     "axios": "^0.21.1",
     "next": "10.2.0",
     "next-images": "^1.7.0",

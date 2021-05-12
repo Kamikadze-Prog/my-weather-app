@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { findCityAct, findForecastAct } from "../../../core/home/home.actions";
+import { Button, Input} from '@material-ui/core';
 import styles from "./input.Form.module.scss";
 
 export const CustomInput = () => {
@@ -18,7 +19,8 @@ export const CustomInput = () => {
   return (
     <div className={styles.inputWrapper}>
       <form className={styles.formWrapper} onSubmit={onClickHandler}>
-        <input
+        <Input
+          className={styles.MuiInputBase}
           type="text"
           placeholder="Enter city"
           value={cityName}
@@ -26,7 +28,7 @@ export const CustomInput = () => {
             setCityName(event.target.value);
           }}
         />
-        <button type={"button"}>Find City</button>
+        <Button color={"primary"} variant={"contained"} type={"button"}>Find City</Button>
       </form>
     </div>
   );

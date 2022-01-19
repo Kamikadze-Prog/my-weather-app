@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div>
-        <span>Owned by Kamikadze</span>
+        <span>Owned by valentin</span>
       </div>
     </footer>
   );
